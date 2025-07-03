@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,50 +7,56 @@
     <link rel="icon" type="image/png" href="logo transparent favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
             background-color: #ffffff;
             color: #1a1a1a;
         }
-        .hero {
-            background-image: url('medium-vecteezy_overjoyed-office-professional-celebrating-success-and_47268412_medium.jpg');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        .hero {background-image: url('medium-vecteezy_overjoyed-office-professional-celebrating-success-and_47268412_medium.jpg'); background-position: center center; background-repeat: no-repeat; background-size: cover; background-attachment: scroll;
             background-color: #f6f9ff;
             color: #000000;
             text-align: center;
-            height: 100vh;
-            padding: 0;
+            min-height: 100vh; height: auto; padding: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0);
+            z-index: 1;
         }
         .hero > * {
             position: relative;
             z-index: 2;
         }
         .hero h1 {
-            font-size: 3.5rem;
-            color: #003ecf;
-            font-weight: 800;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            display: inline-block;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: none;
         }
         .hero p {
             font-size: 1.25rem;
             max-width: 700px;
             margin: 0 auto;
-            color: #333333;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 1rem;
-            border-radius: 8px;
+            color: #e6e6e6;
+            text-shadow: none;
         }
+        .logo-top-left {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    width: 160px;
+    z-index: 100;
+}
         nav.hero-nav {
             position: absolute;
             top: 20px;
@@ -72,9 +77,14 @@
         nav.hero-nav a:hover {
             background-color: rgba(0, 47, 173, 0.85);
         }
-        .services, .contact {
+        .services {
+            background-color: #ffffff;
             text-align: center;
             padding: 4rem 2rem;
+        }
+        .services img {
+            max-width: 240px;
+            margin-bottom: 1.5rem;
         }
         .services h2, .contact h2 {
             font-size: 2.5rem;
@@ -117,6 +127,8 @@
         }
         .contact {
             background-color: #f1f5ff;
+            text-align: center;
+            padding: 4rem 2rem;
         }
         .contact-info {
             font-size: 1.1rem;
@@ -137,51 +149,73 @@
             font-size: 0.9rem;
             color: #666;
         }
-        .logo-floating {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 200;
-            display: none;
-        }
-        .logo-floating img {
-            width: 300px;
-            height: auto;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            const floatingLogo = document.querySelector('.logo-floating');
-            if (window.scrollY > window.innerHeight * 0.7) {
-                floatingLogo.style.display = 'block';
-            } else {
-                floatingLogo.style.display = 'none';
-            }
-        });
-    </script>
+    .logo-floating {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  display: none;
+}
+.logo-floating img {
+  width: 300px;
+  height: auto;
+}
+@media (max-width: 768px) {.hero {background-size: contain; background-position: top center; min-height: 100vh;}} </style>
+<script>
+window.addEventListener('scroll', function() {
+  const floatingLogo = document.querySelector('.logo-floating');
+  if (window.scrollY > window.innerHeight * 0.7) {
+    floatingLogo.style.display = 'block';
+  } else {
+    floatingLogo.style.display = 'none';
+  }
+});
+</script>
 </head>
 <body>
     <section class="hero">
+        
         <nav class="hero-nav">
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
         </nav>
-        <h1>Paperwork Done Right</h1>
-        <p>We simplify your paperwork, so you can focus on what matters most. Fast, reliable, and always done right — that’s the AntiProblem promise.</p>
+        <h1 style="color: #003ecf; font-weight: 800; font-size: 3.5rem; background: rgba(255, 255, 255, 0.8); padding: 0.5rem 1rem; border-radius: 8px; display: inline-block;">Paperwork Done Right</h1>
+        <p style="color: #333333; background: rgba(255, 255, 255, 0.8); padding: 1rem; border-radius: 8px;">We simplify your paperwork, so you can focus on what matters most. Fast, reliable, and always done right — that’s the AntiProblem promise.</p>
     </section>
+
     <section class="services" id="services">
+        
         <h2>Our Services</h2>
         <p>We handle every detail — accurately and on time.</p>
         <div class="service-cards">
-            <div class="card"><h3>Document Prep</h3><p>Expertly prepared and verified documentation tailored to your needs.</p></div>
-            <div class="card"><h3>Government Forms</h3><p>We simplify complex processes and submit forms correctly.</p></div>
-            <div class="card"><h3>Application Support</h3><p>Full assistance for job, visa, housing, and school applications.</p></div>
-            <div class="card"><h3>Notary Services</h3><p>Fast and secure notarization for your official documents.</p></div>
-            <div class="card"><h3>Company Formation</h3><p>Get your business started with expert help on legal paperwork and registration.</p></div>
-            <div class="card"><h3>DMV Services</h3><p>Assistance with vehicle registration, title transfers, and DMV paperwork.</p></div>
+            <div class="card">
+                <h3>Document Prep</h3>
+                <p>Expertly prepared and verified documentation tailored to your needs.</p>
+            </div>
+            <div class="card">
+                <h3>Government Forms</h3>
+                <p>We simplify complex processes and submit forms correctly.</p>
+            </div>
+            <div class="card">
+                <h3>Application Support</h3>
+                <p>Full assistance for job, visa, housing, and school applications.</p>
+            </div>
+            <div class="card">
+                <h3>Notary Services</h3>
+                <p>Fast and secure notarization for your official documents.</p>
+            </div>
+            <div class="card">
+                <h3>Company Formation</h3>
+                <p>Get your business started with expert help on legal paperwork and registration.</p>
+            </div>
+            <div class="card">
+                <h3>DMV Services</h3>
+                <p>Assistance with vehicle registration, title transfers, and DMV paperwork.</p>
+            </div>
         </div>
     </section>
+
     <section class="contact" id="contact">
         <h2>Contact Us</h2>
         <p>Need help or have a question? Reach out to us directly.</p>
@@ -191,9 +225,10 @@
             <p><strong>Address:</strong> <a href="https://maps.google.com/?q=725+S+Glendale+Ave+Unit+F,+Glendale,+CA,+91206" target="_blank">725 S Glendale Ave Unit F, Glendale, CA, 91206</a></p>
         </div>
     </section>
+
     <footer>
         &copy; 2025 AntiProblem. All rights reserved.
     </footer>
-    <div class="logo-floating"><img src="logo transparent.png" alt="Floating Logo"></div>
+<div class="logo-floating"><img src="logo transparent.png" alt="Floating Logo"></div>
 </body>
 </html>
